@@ -4,51 +4,65 @@ import (
 	"fmt"
 )
 
+func main() {
+
+	list := Linkedlist{}
+
+	fmt.Println("enter the values")
+
+	var val int
+
+	for i := 0; i < 7; i++ {
+		fmt.Scan(&val)
+		list.Add(val)
+	}
+
+	fmt.Print("linked list : ")
+	list.Display()
+
+}
+
 type Node struct {
 	value int
 	next  *Node
 }
 
-type LinkedList struct {
+type Linkedlist struct {
 	head *Node
 }
 
-func (list *LinkedList) add(values ...int) {
+func (list *Linkedlist) Add(val ...int) {
 
-	for _, values := range values {
-		newNode := &Node{value: values}
+	for _, val := range val {
+		newNode := &Node{value: val}
 
 		if list.head == nil {
 			list.head = newNode
 		} else {
+
 			current := list.head
 
 			for current.next != nil {
 				current = current.next
 			}
 			current.next = newNode
-		}
 
+		}
 	}
 
 }
 
-func(list *LinkedList) display(){
+func (list *Linkedlist) Display() {
 
-    current := list.head
+	current := list.head
 
-	for current!=nil{
-		fmt.Print(current.value,"->")
-		current=current.next
+	for current != nil {
+
+		fmt.Print(current.value, "->")
+		current = current.next
+
 	}
 
 	fmt.Println("nil")
 
-
-}
-
-func main() {
-	list := LinkedList{}
-	list.add(3, 5, 19)
-	list.display()
 }
