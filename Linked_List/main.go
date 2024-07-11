@@ -8,11 +8,17 @@ func main() {
 
 	list := Linkedlist{}
 
+	fmt.Println("enter limit")
+
+	var limit int
+
+	fmt.Scan(&limit)
+
 	fmt.Println("enter the values")
 
 	var val int
 
-	for i := 0; i < 7; i++ {
+	for i := 0; i < limit; i++ {
 		fmt.Scan(&val)
 		list.Add(val)
 	}
